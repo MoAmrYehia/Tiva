@@ -7,6 +7,7 @@
 
 #include "TM4C123.h"
 //initialize port A
+#define GPIO_PORTF_DEN_R       (*(volatile unsigned long *) 0x4002551C)
 
 void portA_init(void)
 {
