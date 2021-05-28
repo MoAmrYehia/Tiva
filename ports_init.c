@@ -26,14 +26,6 @@
 #define GPIO_PORTB_AMSEL_R      (*((volatile unsigned long *) 0x40005528))
 #define GPIO_PORTB_LOCK_R       (*((volatile unsigned long *) 0x40005520))
 #define GPIO_PORTB_PCTL_R       (*((volatile unsigned long *) 0x4000552C))
-// //c doesn't need
-// #define GPIO_PORTC_DATA_R       (*((volatile unsigned long *) 0x400063FC))
-// #define GPIO_PORTC_DIR_R        (*((volatile unsigned long *) 0x40006400))
-// #define GPIO_PORTC_AFSEL_R      (*((volatile unsigned long *) 0x40006420))
-// #define GPIO_PORTC_PUR_R        (*((volatile unsigned long *) 0x40006510))
-// #define GPIO_PORTC_DEN_R        (*((volatile unsigned long *) 0x4000651C))
-// #define GPIO_PORTC_CR_R         (*((volatile unsigned long *) 0x40006524))
-// #define GPIO_PORTC_AMSEL_R      (*((volatile unsigned long *) 0x40006528))
 //D
 #define GPIO_PORTD_DATA_R       (*((volatile unsigned long *) 0x400073FC))
 #define GPIO_PORTD_DIR_R        (*((volatile unsigned long *) 0x40007400))
