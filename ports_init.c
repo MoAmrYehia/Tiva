@@ -64,7 +64,7 @@ void portA_init(void)
     GPIO_PORTA_CR_R |=0xFC;   // control reg
     GPIO_PORTA_AFSEL_R &= ~0xE0;  //0x03;  // input &output
     GPIO_PORTA_PCTL_R &= ~0xE0;   //0x03;  //no alternative function
-    GPIO_PORTA_AMSEL &= ~0xE0;    //0x03; // no analog function
+    GPIO_PORTA_AMSEL_R &= ~0xE0;    //0x03; // no analog function
     GPIO_PORTA_DIR_R |= 0xFC; //output
     GPIO_PORTA_DEN_R |=0xFC;   //Digital
     GPIO_PORTA_PUR_R &=0x03;  //PULL UP RESISTOR
@@ -79,7 +79,7 @@ void portB_init(void)
     GPIO_PORTB_CR_R |=0xFF;   // control reg
     GPIO_PORTB_AFSEL_R =0;
     GPIO_PORTB_PCTL_R =0;  //no alternative function
-    GPIO_PORTA_AMSEL =0; // no analog function
+    GPIO_PORTA_AMSEL_R =0; // no analog function
     GPIO_PORTA_DIR_R |= 0xFF; //output
     GPIO_PORTA_DEN_R =0xFF;   //Digital
     GPIO_PORTA_PUR_R =0;  //PULL UP RESISTOR
