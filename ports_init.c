@@ -93,7 +93,7 @@ void portD_init(void)
     //GPIO_PORTB_CR_R |=0xFF;   // control reg
     GPIO_PORTD_AFSEL_R &=~0x4C;
     GPIO_PORTD_PCTL_R =0x00000000;  //clear
-    GPIO_PORTD_AMSEL &=~0x4C; // no analog function
+    GPIO_PORTD_AMSEL_R &=~0x4C; // no analog function
     GPIO_PORTD_DIR_R &= 0xFB; // set pin 2 as input
     GPIO_PORTD_DIR_R |=0x48; // set pin 3 as output
     GPIO_PORTD_DEN_R |=0x4C;   //enable bins
@@ -108,7 +108,7 @@ void portE_init(void)
     //GPIO_PORTB_CR_R |=0xFF;   // control reg
     GPIO_PORTD_AFSEL_R &=~0x3F;
     GPIO_PORTD_PCTL_R =0x00000000;  //clear
-    GPIO_PORTD_AMSEL &=~0x3F; // no analog function
+    GPIO_PORTD_AMSEL_R &=~0x3F; // no analog function
 
     GPIO_PORTD_DIR_R |=0x3F; // set pin  as output
     GPIO_PORTD_DEN_R |=0x3F;   //enable bins
@@ -122,7 +122,7 @@ void portF_init(void)
     GPIO_PORTF_LOCK_R = 0x4C4F434B;
     GPIO_PORTB_CR_R |=0x1F;   // control reg
     GPIO_PORTD_AFSEL_R =0;    //reset for bin 0-4
-    GPIO_PORTD_AMSEL |=0; // no analog function
+    GPIO_PORTD_AMSEL_R |=0; // no analog function
     GPIO_PORTA_PUR_R =0x11;  //PULL UP RESISTOR
     GPIO_PORTD_DIR_R |=0x0E; // set pin  as output
     GPIO_PORTD_DEN_R |=0x1F;   //enable bins
