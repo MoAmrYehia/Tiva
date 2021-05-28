@@ -62,11 +62,11 @@ void portA_init(void)
     while((SYSCTL_PRGPIO_R& 0x01)==0); //wait until port A activation
     GPIO_PORTA_LOCK_R = 0x4C4F434B;
     GPIO_PORTA_CR_R |=0xFC;   // control reg
-    GPIO_PORTA_AFSEL_R &= 0x03;  // input &output
-    GPIO_PORTA_PCTL_R &=0x03;  //no alternative function
-    GPIO_PORTA_AMSEL &=0x03; // no analog function
-    GPIO_PORTA_DIR_R |= 0xFC; //output
-    GPIO_PORTA_DEN_R |=0xFC;   //Digital
+    GPIO_PORTA_AFSEL_R &= ~0xE0;  //0x03;  // input &output
+    GPIO_PORTA_PCTL_R &= ~0xE0;   //0x03;  //no alternative function
+    GPIO_PORTA_AMSEL &= ~0xE0;    //0x03; // no analog function
+    GPIO_PORTA_DIR_R |= 0xE0; //output
+    GPIO_PORTA_DEN_R |=0xE0;   //Digital
     GPIO_PORTA_PUR_R &=0x03;  //PULL UP RESISTOR
 }
 
