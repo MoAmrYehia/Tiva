@@ -14,7 +14,14 @@
 #define GPIO_PORTA_DEN_R        (*((volatile unsigned long *) 0x4000451C))
 #define GPIO_PORTA_CR_R         (*((volatile unsigned long *) 0x40004524))
 #define GPIO_PORTA_AMSEL_R      (*((volatile unsigned long *) 0x40004528))
-
+//B
+#define GPIO_PORTB_DATA_R       (*((volatile unsigned long *) 0x400053FC))
+#define GPIO_PORTB_DIR_R        (*((volatile unsigned long *) 0x40005400))
+#define GPIO_PORTB_AFSEL_R      (*((volatile unsigned long *) 0x40005420))
+#define GPIO_PORTB_PUR_R        (*((volatile unsigned long *) 0x40005510))
+#define GPIO_PORTB_DEN_R        (*((volatile unsigned long *) 0x4000551C))
+#define GPIO_PORTB_CR_R         (*((volatile unsigned long *) 0x40005524))
+#define GPIO_PORTB_AMSEL_R      (*((volatile unsigned long *) 0x40005528))
 void portA_init(void)
 {
     SYSCTL_RCGCGPIO_R |= 0x01;  //enable port A
