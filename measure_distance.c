@@ -4,16 +4,24 @@
  *  Created on: May 28, 2021
  *      Author: ehab
  */
+ /*
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
+#include <stdint.h>
+#include "ports_init.h"
+
 #define PI 3.14159265358979323846
-void delay_us(unit32_t delay)
+*/
+#include "measure_distance.h"
+
+void delay_us(uint32_t delay)
 {
     // using clk freq 80M will make a delay with unit of usecond
 
-    unit8_t x=0;
+
+    uint8_t x=0;
     SYSCTL_RCGCTIMER_R |=1;    //Connect timer to clock
     x+=5;   // to make sure the clock is connected
     TIMER0_CTL_R &=~1; // disable the timer to config it

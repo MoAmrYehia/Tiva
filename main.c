@@ -1,9 +1,4 @@
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <inttypes.h>
-#include <string.h>
+
 
 /* GPS
  * TX-->PD6
@@ -11,7 +6,7 @@
  * Vcc--> 3.3V
  */
 
-#include<ports_init.h>
+#include "ports_init.h"
 
 char* saatAyarla(char str[]);
 void readGPSModule();
@@ -19,6 +14,7 @@ void readGPSModule();
 int main(void)
 {
     //----------------------------UART initialization------------------------//
+
     SYSCTL->RCGCUART |= 4; //enable clock for UART2  port D
     SYSCTL->RCGCGPIO |= 8;
     GPIOD->AFSEL |= 0xC0;   //port 6,7
@@ -50,30 +46,37 @@ void readGPSModule(void){
     int index=0,degrees,i=0,j=0;
 
     while((UART2->FR &0x20)!=0);
-    c0= UART2->DR
+    c0= UART2->DR;
 
     //gelen data $GPRMC mi?
     if(c0=='$'){
+				char c1=UART2->DR;
         while((UART2->FR & 0x20)!=0);
-        char c1=UART2->DR;
+        
         if(c1=='G'){
+						char c2=UART2->DR;
             while((UART2->FR & 0x20)!=0);
-            char c2=UART2->DR;
+            
             if(c2=='P'){
+								char c3=UART2->DR;
                 while((UART2->FR & 0x20)!=0);
-                char c3=UART2->DR;
+                
                 if(c3=='R'){
+										char c4=UART2->DR;
                     while((UART2->FR & 0x20)!=0);
-                    char c4=UART2->DR;
+                    
                     if(c4=='M'){
+											char c5=UART2->DR;
                         while((UART2->FR & 0x20)!=0);
-                        char c5=UART2->DR;
+                        
                         if(c5=='C'){
+														char c6=UART2->DR;
                             while((UART2->FR & 0x20)!=0);
-                            char c6=UART2->DR;
+                            
                             if(c6==','){
+																char c7=UART2->DR;
                                 while((UART2->FR & 0x20)!=0);
-                                char c7=UART2->DR;
+                                
 
                                 //GET  gps values as array and check sum
                                 while(c7!='*'){
@@ -143,7 +146,8 @@ void readGPSModule(void){
                                     printf("Tarih = %s\n",tarih);
                                     printf("Enlem = %s\n",latitudeResult);
                                     printf("Boylam= %s\n\n\n",longitudeResult);
-                                    //SysCtlDelay(SysCtlClockGet()/6);}
+                                    //SysCtlDelay(SysCtlClockGet()/6);
+																				}
                                 else{
                                     printf("  GPS Verileri Okunuyor\n\n\n");}
 

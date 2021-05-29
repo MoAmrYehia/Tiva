@@ -4,7 +4,15 @@
  *  Created on: May 26, 2021
  *      Author: ehab
  */
-
+#include <TM4C123.h>
+ #include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <inttypes.h>
+#include <string.h>
+ 
+#include "C:\Keil\EE319Kware\inc/tm4c123gh6pm.h"
 #ifndef PORTS_INIT_H_
 #define PORTS_INIT_H_
 

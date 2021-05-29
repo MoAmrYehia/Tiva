@@ -4,9 +4,11 @@
  *  Created on: May 26, 2021
  *      Author: ehab
  */
-
-#include "TM4C123.h"
+//#include <TM4C123.h>
+#include "ports_init.h"
+//#include "C:\Keil\EE319Kware\inc/tm4c123gh6pm.h"
 //A
+/*
 #define GPIO_PORTA_DATA_R       (*((volatile unsigned long *) 0x400043FC))
 #define GPIO_PORTA_DIR_R        (*((volatile unsigned long *) 0x40004400))
 #define GPIO_PORTA_AFSEL_R      (*((volatile unsigned long *) 0x40004420))
@@ -54,12 +56,17 @@
 #define GPIO_PORTF_DEN_R        (*((volatile unsigned long *) 0x4002551C))
 #define GPIO_PORTF_CR_R         (*((volatile unsigned long *) 0x40025524))
 #define GPIO_PORTF_AMSEL_R      (*((volatile unsigned long *) 0x40025528))
+<<<<<<< HEAD
+*/
+=======
 #define GPIO_PORTF_LOCK_R       (*((volatile unsigned long *) 0x40025520))
 #define GPIO_PORTF_PCTL_R       (*((volatile unsigned long *) 0x4002552C))
 
+>>>>>>> 0f9a515d5f2e8b5c88fa5dc4047a65d3d5fefc55
 
 void portA_init(void)
 {
+
     SYSCTL_RCGCGPIO_R |= 0x01;  //enable port A
     while((SYSCTL_PRGPIO_R& 0x01)==0); //wait until port A activation
     GPIO_PORTA_LOCK_R = 0x4C4F434B;
