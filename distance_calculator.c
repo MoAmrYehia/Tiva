@@ -58,16 +58,21 @@ double rad2deg(double rad) {
     return (rad * 180 / pi);
 }
 
-int main() {
 
-    double lat1 = 30.0444 ;
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/*::  This main function is just for testing                        :*/
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/* int main() {
+
+    double lat1 = 30.0444 ; // Cairo Location
     double lon1 = 31.2357;
 
-    double lat2 = 31.2001;
+    double lat2 = 31.2001; // Alex Location 
     double lon2 = 29.9187;
 
     double distance_meter = distance(lat1, lon1, lat2, lon2);
 
     printf("Total distance is: %lf \n", distance_meter);
     return 0;
-}
+} */
+
