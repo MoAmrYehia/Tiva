@@ -1,3 +1,20 @@
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/*::                                                                         :*/
+/*::  This function calculates the distance between two points (given the    :*/
+/*::  latitude/longitude). It is being used to calculate                     :*/
+/*::  the distance between two locations using GPS Module                    :*/
+/*::                                                                         :*/
+/*::  Definitions:                                                           :*/
+/*::    South latitudes are negative, east longitudes are positive           :*/
+/*::                                                                         :*/
+/*::  Passed to function:                                                    :*/
+/*::    lat1, lon1 = Latitude and Longitude of point 1 (in decimal degrees)  :*/
+/*::    lat2, lon2 = Latitude and Longitude of point 2 (in decimal degrees)  :*/
+/*::                                                                         :*/ 
+/*:: Aouther: Mohamed Amr                                                    :*/
+/*::                                                                         :*/
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 #include <stdio.h>
 #include <math.h>
 
