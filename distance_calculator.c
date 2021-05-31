@@ -41,6 +41,11 @@ double distance(double lat1, double lon1, double lat2, double lon2) {
     }
 }
 
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/*::  This function converts decimal degrees to radians             :*/
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 double deg2rad(double deg) {
     return (deg * pi / 180);
 }
