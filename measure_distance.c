@@ -56,11 +56,18 @@ double getDistance(double lat1, double lon1, double lat2, double lon2)
     double cos2SigmaM;
     double cosSigma;
     double sigma;
+		double uSq;
+		double A;
+		double B;
+	  double deltaSigma;
+		double s;
 
     double lambda = L, lambdaP, iterLimit = 100;
     do
     {
         double sinLambda = sin(lambda), cosLambda = cos(lambda);
+			double sinAlpha;
+			double C;
         sinSigma = sqrt((cosU2 * sinLambda)
                     * (cosU2 * sinLambda)
                         + (cosU1 * sinU2 - sinU1 * cosU2 * cosLambda)
@@ -70,14 +77,15 @@ double getDistance(double lat1, double lon1, double lat2, double lon2)
         {
             return 0;
         }
-
+			 sinAlpha = cosU1 * cosU2 * sinLambda / sinSigma;
+				 C = f / 16 * cosSqAlpha * (4 + f * (4 - 3 * cosSqAlpha));
         cosSigma = sinU1 * sinU2 + cosU1 * cosU2 * cosLambda;
         sigma = atan2(sinSigma, cosSigma);
-        double sinAlpha = cosU1 * cosU2 * sinLambda / sinSigma;
+        
         cosSqAlpha = 1 - sinAlpha * sinAlpha;
         cos2SigmaM = cosSigma - 2 * sinU1 * sinU2 / cosSqAlpha;
 
-        double C = f / 16 * cosSqAlpha * (4 + f * (4 - 3 * cosSqAlpha));
+        
         lambdaP = lambda;
         lambda = L + (1 - C) * f * sinAlpha
                 *   (sigma + C * sinSigma
@@ -91,18 +99,18 @@ double getDistance(double lat1, double lon1, double lat2, double lon2)
         return 0;
     }
 
-    double uSq = cosSqAlpha * (a * a - b * b) / (b * b);
-    double A = 1 + uSq / 16384
+    uSq = cosSqAlpha * (a * a - b * b) / (b * b);
+    A = 1 + uSq / 16384
             * (4096 + uSq * (-768 + uSq * (320 - 175 * uSq)));
-    double B = uSq / 1024 * (256 + uSq * (-128 + uSq * (74 - 47 * uSq)));
-    double deltaSigma =
+    B = uSq / 1024 * (256 + uSq * (-128 + uSq * (74 - 47 * uSq)));
+    deltaSigma =
                 B * sinSigma
                     * (cos2SigmaM + B / 4
                         * (cosSigma
                             * (-1 + 2 * cos2SigmaM * cos2SigmaM) - B / 6 * cos2SigmaM
                                 * (-3 + 4 * sinSigma * sinSigma)
                                     * (-3 + 4 * cos2SigmaM * cos2SigmaM)));
-    double s = b * A * (sigma - deltaSigma);
+    s = b * A * (sigma - deltaSigma);
     return s;
 }
 

@@ -14,36 +14,55 @@
 */
 #include "LCD_display.h"
 
-void Delay()
+void Delay_Milli(unsigned long n)
 {
-    unsigned long time;
-    time =12000;
-    while(time)
-            time--;
-    
+    unsigned long i,j;
+		for(i=0;i<n;i++)
+				for(j=0;j<3180;j++);  
 
 }
-
-void LCD_CMD(unsigned long cmd)
+void Delay_Micro(unsigned long n)
 {
+	unsigned long i,j;
+		for(i=0;i<n;i++)
+				for(j=0;j<3;j++);  
+}
+void LCD_INIT(void)
+{
+	SYSCTL->RCGCGPIO |=0x01;
+	SYSCTL->RCGCGPIO |=0x02;
+	GPIOA->DIR |=0xE0;  // RS, E, RW  ---- PA7, PA6, PA5
+	GPIOA->DEN |=0xE0;  
+	GPIOB->DIR |=0xFF; 
+	GPIOB->DEN |=0xFF;
+	LCD_CMD(0x38);  //8bit 2displaylines, 5*7 font
+	LCD_CMD(0x06); // increment automatically
+	LCD_CMD(0x0F);  // turn on display
+	LCD_CMD(0x01);  //clear display
+}
 
-    GPIO_PORTB_DATA_R= cmd; //set PB7-0 as the passed command to the function
-    LCD_RS = 0x00;   // set PA7 reg_select pin to low
-    LCD_RW =0x00;  // set PA5 r/w pin to low
-    LCD_EN = 0x40;  // set enable pin to high
-    Delay();
-    LCD_EN = 0x00;  //set enable pin to low
+void LCD_CMD(unsigned char cmd)
+{
+		GPIOA->DATA =0x00;
+		GPIOB->DATA = cmd; //set PB7-0 as the passed command to the function
+    
+		GPIOA->DATA = 0x40;  // set enable pin to high
+    Delay_Micro(0);
+    GPIOA->DATA = 0x00;  //set enable pin to low
+		if(cmd<4)
+			Delay_Milli(2);
+		else 
+			Delay_Micro(37);
 }
 
 void LCD_WRITE(unsigned char data)
 {
-    GPIO_PORTB_DATA_R =data;
-    LCD_RS= 0x80;   // set PA7 to high
-    LCD_RW= 0x00;  // set PA5 to low
-    LCD_EN = 0x40; // set the enable pin high
-    Delay();
-    LCD_EN = 0x00;  // set the enable pin to low
+		GPIOA->DATA =0x80;  //RS=1 , E=0,RW =0
+    GPIOB->DATA =data;
+    GPIOA->DATA |=0x40;
+		GPIOA->DATA =0x00;
+		Delay_Micro(0);
+
 
 }
-
 
