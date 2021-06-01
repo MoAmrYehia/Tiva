@@ -7,8 +7,8 @@
  */
 
 //Include Libraries
-#include "ports_init.h"
 #include "LCD_display.h"
+#include "ports_init.h"
 #include "measure_distance.h"
 #include "test.h"
 
