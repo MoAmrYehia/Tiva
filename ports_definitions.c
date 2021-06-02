@@ -50,9 +50,8 @@
 #define GPIO_PORTF_DEN_R        (*((volatile unsigned long *) 0x4002551C))
 #define GPIO_PORTF_CR_R         (*((volatile unsigned long *) 0x40025524))
 #define GPIO_PORTF_AMSEL_R      (*((volatile unsigned long *) 0x40025528))
-<<<<<<< HEAD
+
 //=======
 #define GPIO_PORTF_LOCK_R       (*((volatile unsigned long *) 0x40025520))
 #define GPIO_PORTF_PCTL_R       (*((volatile unsigned long *) 0x4002552C))
->>>>>>> 0f9a515d5f2e8b5c88fa5dc4047a65d3d5fefc55
 
