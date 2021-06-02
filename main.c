@@ -38,12 +38,12 @@ int main(void)
 	portF_init();
 	LCD_INIT();
 	
-    //----------------------------UART initialization------------------------//
-		SYSCTL->RCGCUART |=  (1<<0);//4; //enable clock for UART2  port D
-    SYSCTL->RCGCGPIO |=   (1<<0);  //  8;
-    GPIOA->AFSEL |=        (1<<1)|(1<<0);     //0xC0;   //port 6,7
-    GPIOA->PCTL |=     (1<<0)|(1<<4);    //0xC0;
-    GPIOA->DEN |=       (1<<0)|(1<<1);          //0xC0;
+    //----------------------------UART0 initialization------------------------//
+		SYSCTL->RCGCUART |=  (1<<0); //enable clock for UART0  port A
+    SYSCTL->RCGCGPIO |=   (1<<0);  
+    GPIOA->AFSEL |=        (1<<1)|(1<<0);     //port PA0,PA1
+    GPIOA->PCTL |=     (1<<0)|(1<<4);    
+    GPIOA->DEN |=       (1<<0)|(1<<1);         
 
     UART0->CTL &=  ~(1<<0);      
     //after calculationg baudrate
