@@ -5,23 +5,29 @@
  * RX-->PD7
  * Vcc--> 3.3V
  */
+ 
+ 
 
 #include "ports_init.h"
 #include "LCD_display.h"
 #include "measure_distance.h"
 #include "test.h"
+#include "distance_calculator.h"
 
+#define dis 100
+
+
+double coordinates[4];
+uint32_t f=0;
 
 
 char* saatAyarla(char str[]);
 void readGPSModule();
 
 int main(void)
-{/*
-	char* s;
-	char ss[4];
-	char c;
-	int i;*/
+{
+	double Distance=0.0,display=0.0;
+	char arr[6];
 	
 	Systic_init();
   portA_init();
@@ -110,16 +116,40 @@ int main(void)
 					GPIOF->DATA &=~0x08;
 	*/
 
-    while(1)
+    while(Distance<dis)
     {
-			int n=7;
-			char ccc=n+'0';
+			//int n=7;
+			//char ccc=n+'0';
 		
-		Delay_Milli(500);
-		LCD_WRITE(ccc);
+		//Delay_Milli(500);
+		//LCD_WRITE(ccc);
+			LCD_CMD(0x01);
+			LCD_CMD(0x80);
+			Delay_Milli(500);
 			
         readGPSModule();
+				
+			if(f==4)
+			{
+				Distance+=distance(coordinates[0],coordinates[1],coordinates[2],coordinates[3]);
+				f=0;
+			}
+			
+			display=Distance;
+			Delay_Milli(30000);
+			
+			memcpy(arr,&display,sizeof(display));
+			for(uint32_t i=0;i<6;i++)
+			{
+				
+				LCD_WRITE(arr[i]);
+				Delay_Milli(1);
+			}
+			
+			
+			
     }
+		
 	/*
 		LCD_CMD(0x01);
 		LCD_CMD(0x80);
@@ -151,7 +181,7 @@ int main(void)
 		Delay_Milli(1);*/
 		
 		
-
+GPIOF->DATA |=0x02;
 
 }
 
@@ -300,6 +330,14 @@ while(c0!='$')
 																			Print_String("\n\r");
 																		Print_String(tarih);
 																				Print_String("\n\r");
+																				
+																		
+																			coordinates[f]=atof(latitudeResult);
+																				f++;
+																			coordinates[f]=atof(longitudeResult);
+																				f++;
+																					
+																				
 																				
 																				
 																		
