@@ -4,7 +4,7 @@
  *  Created on: May 28, 2021
  *      Author: ehab
  */
- /*
+ 
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -13,7 +13,7 @@
 #include "ports_init.h"
 
 #define PI 3.14159265358979323846
-*/
+
 #include "measure_distance.h"
 
 void delay_us(uint32_t delay)
