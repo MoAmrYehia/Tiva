@@ -29,6 +29,7 @@ int main(void)
 {
 	double Distance=0.0,display=0.0;
 	char arr[6];
+	uint32_t i;
 	
 	Systic_init();
   portA_init();
@@ -107,7 +108,7 @@ int main(void)
 			Delay_Milli(30000);
 			
 			memcpy(arr,&display,sizeof(display));
-			for(uint32_t i=0;i<6;i++)
+			for(i=0;i<6;i++)
 			{
 				
 				LCD_WRITE(arr[i]);
