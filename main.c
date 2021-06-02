@@ -55,12 +55,12 @@ int main(void)
     UART0->CTL =	 0x301;//(1<<0)|(1<<8)|(1<<9);			
 		
 		
-
+ //----------------------------UART2 initialization------------------------//
     SYSCTL->RCGCUART |=  (1<<2);//4; //enable clock for UART2  port D
     SYSCTL->RCGCGPIO |=   (1<<3);  //  8;
 	    
-    GPIOD->AFSEL |=   0xC0;//(1<<6)|(1<<7);   //port 6,7
-    GPIOD->PCTL |= 0x11000000;//(GPIOD->PCTL& 0x00FFFFFF)+0x22000000;//|=   0xC0;
+    GPIOD->AFSEL |=   0xC0; //(1<<6)|(1<<7);   //port 6,7
+    GPIOD->PCTL |= 0x11000000; //(GPIOD->PCTL& 0x00FFFFFF)+0x22000000;//|=   0xC0;
     GPIOD->DEN |=  0xC0;   // (1<<6)|(1<<7);
 		//GPIOD->AMSEL &=~0xC0;
 		UART2->CTL &=~(1<<0);      //~(0x20);
