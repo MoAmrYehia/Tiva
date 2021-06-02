@@ -12,6 +12,7 @@
 #define LCD_EN (*((volatile unsigned long *)0x40004100))
 #define LCD_RW (*((volatile unsigned long *)0x40004080))
 */
+
 #include "LCD_display.h"
 
 void Delay_Milli(unsigned long n)
