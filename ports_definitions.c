@@ -2,7 +2,7 @@
 #include "ports_init.h"
 //#include "C:\Keil\EE319Kware\inc/tm4c123gh6pm.h"
 //A
-/*
+
 #define GPIO_PORTA_DATA_R       (*((volatile unsigned long *) 0x400043FC))
 #define GPIO_PORTA_DIR_R        (*((volatile unsigned long *) 0x40004400))
 #define GPIO_PORTA_AFSEL_R      (*((volatile unsigned long *) 0x40004420))
@@ -55,4 +55,4 @@
 #define GPIO_PORTF_LOCK_R       (*((volatile unsigned long *) 0x40025520))
 #define GPIO_PORTF_PCTL_R       (*((volatile unsigned long *) 0x4002552C))
 >>>>>>> 0f9a515d5f2e8b5c88fa5dc4047a65d3d5fefc55
-*/
+
