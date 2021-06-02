@@ -1,4 +1,4 @@
-#include <TM4C123.h>
+//#include <TM4C123.h>
 #include "test.h"
 
 char Read_Char(void)
@@ -20,7 +20,7 @@ void Print_String(char * s)
 	while(*s)
 		Print_Char(*(s++));
 }
-
+/*
 char *Read_String(char d)
 {
 	int string_size =0;
@@ -43,3 +43,4 @@ char *Read_String(char d)
 		return '\0';   //null
 	return string;
 }
+*/
