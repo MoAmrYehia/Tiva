@@ -11,3 +11,9 @@ void Delay_Milli(unsigned long n)
 				for(j=0;j<3180;j++);  
 
 }
+void Delay_Micro(unsigned long n)
+{
+	unsigned long i,j;
+		for(i=0;i<n;i++)
+				for(j=0;j<3;j++);  
+}
