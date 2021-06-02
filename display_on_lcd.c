@@ -32,7 +32,16 @@ void LCD_INIT(void)
 	LCD_CMD(0x01);  //clear display
 }
 
+void LCD_WRITE(unsigned char data)
+{
+		GPIOA->DATA =0x80;  //RS=1 , E=0,RW =0
+    GPIOB->DATA =data;
+    GPIOA->DATA |=0x40;
+		GPIOA->DATA =0x00;
+		Delay_Micro(0);
 
+
+}
 void LCD_CMD(unsigned char cmd)
 {
 		GPIOA->DATA =0x00;
