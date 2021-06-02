@@ -133,7 +133,10 @@ int main(void)
 			if(f==4)
 			{
 				Distance+=distance(coordinates[0],coordinates[1],coordinates[2],coordinates[3]);
-				f=0;
+				coordinates[0]=coordinates[2];
+				coordinates[1]=coordinates[3];
+				
+				f=2;
 			}
 			
 			display=Distance;
