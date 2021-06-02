@@ -31,3 +31,18 @@ void LCD_INIT(void)
 	LCD_CMD(0x0F);  // turn on display
 	LCD_CMD(0x01);  //clear display
 }
+
+
+void LCD_CMD(unsigned char cmd)
+{
+		GPIOA->DATA =0x00;
+		GPIOB->DATA = cmd; //set PB7-0 as the passed command to the function
+    
+		GPIOA->DATA = 0x40;  // set enable pin to high
+    Delay_Micro(0);
+    GPIOA->DATA = 0x00;  //set enable pin to low
+		if(cmd<4)
+			Delay_Milli(2);
+		else 
+			Delay_Micro(37);
+}
