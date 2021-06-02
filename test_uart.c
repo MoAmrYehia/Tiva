@@ -14,3 +14,9 @@ void Print_Char(char c)
 	while((UART0->FR &0x20)!=0);  //WAIT UNTILL TX BUFFER NOT FULL
 	UART0->DR = c;
 }
+
+void Print_String(char * s)
+{
+	while(*s)
+		Print_Char(*(s++));
+}
