@@ -2,7 +2,7 @@
  * measure_distance.c
  *
  *  Created on: May 28, 2021
- *      Author: Dina
+ *  Created by: Dina A.
  */
  
 #include <stdio.h>
