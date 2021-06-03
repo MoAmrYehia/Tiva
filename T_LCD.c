@@ -13,3 +13,6 @@ void keypad_init(void);
 unsigned char keypad_kbhit(void);
 void keypad_init(void);
 unsigned char keypad_getkey(void);
+int main(void)
+{
+unsigned char key;
