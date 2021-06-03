@@ -57,11 +57,11 @@ double getDistance(double lat1, double lon1, double lat2, double lon2)
     double cos2SigmaM;
     double cosSigma;
     double sigma;
-		double uSq;
-		double A;
-		double B;
-	  double deltaSigma;
-		double s;
+	double uSq;
+	double A;
+	double B;
+	double deltaSigma;
+	double s;
 
     double lambda = L, lambdaP, iterLimit = 100;
     do
