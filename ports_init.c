@@ -150,7 +150,7 @@ void portF_init(void)
 
 }
 
-
+// systick initialization
 void Systic_init(void)
 {
 	NVIC_ST_CTRL_R =0;  //disable systic during setup
