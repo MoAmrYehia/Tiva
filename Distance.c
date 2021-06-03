@@ -10,3 +10,18 @@ void Delay(unsigned long counter);
 uint32_t time;
 uint32_t distance; 
 char mesg[20];  
+int main(void)
+{
+Timer0ACapture_init();  
+UART5_init();
+	while(1)
+	{
+time = Measure_distance();  
+distance = (time * 10625)/10000000; 
+sprintf(mesg, "\r\nDistance = %d cm", distance); 
+printstring(mesg); 
+Delay(2000);
+
+	}
+	
+}
