@@ -17,8 +17,6 @@
 void delay_us(uint32_t delay)
 {
     // using clk freq 80M will make a delay with unit of usecond
-
-
     uint8_t x=0;
     SYSCTL_RCGCTIMER_R |=1;    //Connect timer to clock
     x+=5;   // to make sure the clock is connected
