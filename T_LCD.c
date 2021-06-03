@@ -6,3 +6,4 @@
 #define EN 0x80 /* PORTA BIT7 mask */
 void delayMs(int n);
 void delayUs(int n);
+void LCD_command(unsigned char command);
