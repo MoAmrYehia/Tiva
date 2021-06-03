@@ -14,6 +14,8 @@
 
 #define PI 3.14159265358979323846
 
+
+// Delay function
 void delay_us(uint32_t delay)
 {
     // using clk freq 80M will make a delay with unit of usecond
