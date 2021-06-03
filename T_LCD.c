@@ -11,3 +11,5 @@ void LCD_data(unsigned char data);
 void LCD_init(void);
 void keypad_init(void);
 unsigned char keypad_kbhit(void);
+void keypad_init(void);
+unsigned char keypad_getkey(void);
