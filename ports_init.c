@@ -149,6 +149,8 @@ void portF_init(void)
     GPIO_PORTF_DEN_R |=0x1F;   //enable bins
 
 }
+
+
 void Systic_init(void)
 {
 	NVIC_ST_CTRL_R =0;  //disable systic during setup
