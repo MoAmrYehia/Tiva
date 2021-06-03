@@ -5,3 +5,4 @@
 #define RW 0x40 /* PORTA BIT6 mask */
 #define EN 0x80 /* PORTA BIT7 mask */
 void delayMs(int n);
+void delayUs(int n);
