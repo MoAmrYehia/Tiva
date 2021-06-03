@@ -7,3 +7,6 @@ void UART5_init(void);
 void UART5_Transmitter(unsigned char data);
 void printstring(char *str);
 void Delay(unsigned long counter);
+uint32_t time;
+uint32_t distance; 
+char mesg[20];  
