@@ -25,15 +25,16 @@ LCD_init();
   
 while(1)
 {
-LCD_command(0x80);
-key = keypad_getkey();
-  
-if (key != 0)
+LCD_command(0x80);    /* LCD cursor location */
+key = keypad_getkey();    /* read the keypad */
+
+/* if a key is pressed */ 
+if (key != 0)   
 {
-LCD_data(key);
+LCD_data(key);   /* display the key label */
 }
 else
 LCD_data(' ');
-delayMs(20);
+delayMs(20);    /* wait for 20 mS */
 }
 }
