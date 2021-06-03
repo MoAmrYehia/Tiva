@@ -25,3 +25,14 @@ Delay(2000);
 	}
 	
 }
+uint32_t Measure_distance(void)
+{
+    int lastEdge, thisEdge;
+	
+	  GPIOA->DATA &= ~(1<<4); 
+	  Delay_MicroSecond(10); 
+	  GPIOA->DATA |= (1<<4); 
+	  Delay_MicroSecond(10); 
+	  GPIOA->DATA &= ~(1<<4);
+	  
+}
