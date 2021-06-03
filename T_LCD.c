@@ -18,3 +18,16 @@ int main(void)
 unsigned char key;
 keypad_init();
 LCD_init();
+while(1)
+{
+LCD_command(0x80);
+key = keypad_getkey(); 
+if (key != 0)
+{
+LCD_data(key);
+}
+else
+LCD_data(' ');
+delayMs(20);
+}
+}
