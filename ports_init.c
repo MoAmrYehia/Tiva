@@ -7,7 +7,7 @@
 //#include <TM4C123.h>
 #include "ports_init.h"
 //#include "C:\Keil\EE319Kware\inc/tm4c123gh6pm.h"
-//A
+//PORT(A)
 /*
 #define GPIO_PORTA_DATA_R       (*((volatile unsigned long *) 0x400043FC))
 #define GPIO_PORTA_DIR_R        (*((volatile unsigned long *) 0x40004400))
