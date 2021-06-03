@@ -34,5 +34,20 @@ uint32_t Measure_distance(void)
 	  GPIOA->DATA |= (1<<4); 
 	  Delay_MicroSecond(10); 
 	  GPIOA->DATA &= ~(1<<4);
+	while(1)
+	{
+    TIMER0->ICR = 4;            
+    while((TIMER0->RIS & 4) == 0) ;    
+	  if(GPIOB->DATA & (1<<6)) 
+		{
+    lastEdge = TIMER0->TAR;     
+    TIMER0->ICR = 4;            
+    while((TIMER0->RIS & 4) == 0) ;    
+    thisEdge = TIMER0->TAR;     
+		return (thisEdge - lastEdge); 
+		}
+	}
+}
+	 
 	  
 }
