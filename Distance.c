@@ -52,7 +52,25 @@ uint32_t Measure_distance(void)
 		return (thisEdge - lastEdge); 
 		}
 	}
+}	 	  
 }
-	 
-	  
+void Timer0ACapture_init(void)
+{
+    SYSCTL->RCGCTIMER |= 1;     // enable clock to Timer Block 0 
+    SYSCTL->RCGCGPIO |= 2;      // enable clock to PORTB */
+    
+    GPIOB->DIR &= ~0x40;        // make PB6 an input pin */
+    GPIOB->DEN |= 0x40;         // make PB6 as digital pin */
+    GPIOB->AFSEL |= 0x40;       // use PB6 alternate function */
+    GPIOB->PCTL &= ~0x0F000000;  // configure PB6 for T0CCP0 */
+    GPIOB->PCTL |= 0x07000000;
+	  SYSCTL->RCGCGPIO |= 1;      // enable clock to PORTA */
+	  GPIOA->DIR |=(1<<4);         // set PB2 as a digial output pin */
+	  GPIOA->DEN |=(1<<4);         // make PB2 as digital pin */
+
+    TIMER0->CTL &= ~1;          // disable timer0A during setup */
+    TIMER0->CFG = 4;            // 16-bit timer mode */
+    TIMER0->TAMR = 0x17;        // up-count, edge-time, capture mode */
+    TIMER0->CTL |=0x0C;        // capture the rising edge */
+    TIMER0->CTL |= (1<<0);           // enable timer0A */
 }
