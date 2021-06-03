@@ -10,9 +10,9 @@
 #include <math.h>
 #include <stdint.h>
 #include "ports_init.h"
+#include "measure_distance.h"
 
 #define PI 3.14159265358979323846
-#include "measure_distance.h"
 
 void delay_us(uint32_t delay)
 {
