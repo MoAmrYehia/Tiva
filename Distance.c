@@ -28,25 +28,27 @@ Delay(2000);
 	}
 	
 }
+//This function captures consecutive rising and falling edges of a periodic signal 
+//from Timer Block 0 Timer A and returns the time difference (the period of the signal).
 uint32_t Measure_distance(void)
 {
     int lastEdge, thisEdge;
 	
-	  GPIOA->DATA &= ~(1<<4); 
-	  Delay_MicroSecond(10); 
-	  GPIOA->DATA |= (1<<4); 
-	  Delay_MicroSecond(10); 
-	  GPIOA->DATA &= ~(1<<4);
+	  GPIOA->DATA &= ~(1<<4);   //make trigger  pin high
+	  Delay_MicroSecond(10);    //10 seconds delay
+	  GPIOA->DATA |= (1<<4);    //make trigger  pin high
+	  Delay_MicroSecond(10);    //10 seconds delay
+	  GPIOA->DATA &= ~(1<<4);   ////make trigger  pin low
 	while(1)
 	{
-    TIMER0->ICR = 4;            
-    while((TIMER0->RIS & 4) == 0) ;    
-	  if(GPIOB->DATA & (1<<6)) 
+    TIMER0->ICR = 4;              //clear timer0A capture flag    
+    while((TIMER0->RIS & 4) == 0) ;    //wait till captured
+	  if(GPIOB->DATA & (1<<6))     //check if rising edge occurs
 		{
-    lastEdge = TIMER0->TAR;     
-    TIMER0->ICR = 4;            
+    lastEdge = TIMER0->TAR;     //ave the timestamp
+    TIMER0->ICR = 4;            //clear timer0A capture flag
     while((TIMER0->RIS & 4) == 0) ;    
-    thisEdge = TIMER0->TAR;     
+    thisEdge = TIMER0->TAR;    // save the timestamp
 		return (thisEdge - lastEdge); 
 		}
 	}
