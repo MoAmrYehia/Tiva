@@ -54,6 +54,8 @@ uint32_t Measure_distance(void)
 	}
 }	 	  
 }
+//Timer0A initialization function 
+// Initialize Timer0A in input-edge time mode with up-count mode
 void Timer0ACapture_init(void)
 {
     SYSCTL->RCGCTIMER |= 1;     // enable clock to Timer Block 0 
