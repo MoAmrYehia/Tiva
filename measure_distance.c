@@ -32,6 +32,7 @@ void delay_us(uint32_t delay)
     while(!TIMER0_RIS_R &1);  // wait to finish the interval
 }
 
+// Convert degrees to radian
 double toRadians(double degree)
 {
     double r = degree * PI / 180;
