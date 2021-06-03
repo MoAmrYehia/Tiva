@@ -30,6 +30,4 @@ void delay_us(uint32_t delay)
     TIMER0_ICR_R |=1;  //clear the timeout flag
     TIMER0_CTL_R |=1; // timer enable and counting starts
     while(!TIMER0_RIS_R &1);  // wait to finish the interval
-
-
 }
