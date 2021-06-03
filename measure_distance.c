@@ -39,6 +39,7 @@ double toRadians(double degree)
     return r;
 }
 
+// Function for getting the distance 
 double getDistance(double lat1, double lon1, double lat2, double lon2)
 {
     double a = 6378137, b = 6356752.314245, f = 1 / 298.257223563;
