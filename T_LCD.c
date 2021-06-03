@@ -16,3 +16,5 @@ unsigned char keypad_getkey(void);
 int main(void)
 {
 unsigned char key;
+keypad_init();
+LCD_init();
