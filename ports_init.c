@@ -38,7 +38,7 @@
 #define GPIO_PORTD_AMSEL_R      (*((volatile unsigned long *) 0x40007528))
 #define GPIO_PORTD_LOCK_R       (*((volatile unsigned long *) 0x40007520))
 #define GPIO_PORTD_PCTL_R       (*((volatile unsigned long *) 0x4000752C))
-//E
+//PORTE
 #define GPIO_PORTE_DATA_R       (*((volatile unsigned long *) 0x400243FC))
 #define GPIO_PORTE_DIR_R        (*((volatile unsigned long *) 0x40024400))
 #define GPIO_PORTE_AFSEL_R      (*((volatile unsigned long *) 0x40024420))
