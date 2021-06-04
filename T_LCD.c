@@ -105,3 +105,11 @@ if (col != 0xF0) break;
  
 return 0;      /* if no key is pressed */
 }
+
+/* when one of the rows has key pressed */
+if (col == 0xE0) return keymap[row][0]; /* key in column 0 */
+if (col == 0xD0) return keymap[row][1]; /* key in column 1 */
+if (col == 0xB0) return keymap[row][2]; /* key in column 2 */
+if (col == 0x70) return keymap[row][3]; /* key in column 3 */
+return 0;
+}
