@@ -132,3 +132,11 @@ void Delay(unsigned long counter)
 	
 	for(i=0; i< counter*1000; i++);
 }
+void SystemInit(void)
+{
+    __disable_irq();    // disable all IRQs 
+    
+    // Grant coprocessor access */
+    // This is required since TM4C123G has a floating point coprocessor 
+    SCB->CPACR |= 0x00F00000;
+}
