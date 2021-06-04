@@ -6,3 +6,7 @@
 #include <stdlib.h>
 #include <inttypes.h>
 #include <string.h>
+
+#include "inc/hw_ints.h"
+#include "inc/hw_types.h"
+#include "inc/hw_memmap.h"
