@@ -119,3 +119,10 @@ void UART5_Transmitter(unsigned char data)
     while((UART5->FR & (1<<5)) != 0); // wait until Tx buffer not full 
     UART5->DR = data;                  // before giving it another byte 
 }
+void printstring(char *str)
+{
+  while(*str)
+	{
+		UART5_Transmitter(*(str++));
+	}
+}
