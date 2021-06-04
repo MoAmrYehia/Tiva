@@ -74,3 +74,34 @@ KEYPAD_ROW->DATA = 0;             /* enable all rows */
 col = KEYPAD_COL->DATA & 0xF0;    /* read all columns */
 if (col == 0xF0) 
    return 0;         /* no key pressed */
+
+/* If a key is pressed, it gets here to find out which key. */
+while (1)
+{
+row = 0;
+KEYPAD_ROW->DATA = 0x0E;    /* enable row 0 */
+delayUs(2);       /* wait for signal to settle */
+col = KEYPAD_COL->DATA & 0xF0;
+if (col != 0xF0) break;
+ 
+row = 1;
+KEYPAD_ROW->DATA = 0x0D;  /* enable row 1 */
+delayUs(2);     /* wait for signal to settle */
+col = KEYPAD_COL->DATA & 0xF0;
+if (col != 0xF0) break;
+ 
+row = 2;
+KEYPAD_ROW->DATA = 0x0B;      /* enable row 2 */
+delayUs(2);     /* wait for signal to settle */
+col = KEYPAD_COL->DATA & 0xF0;
+if (col != 0xF0) break;
+ 
+row = 3;
+KEYPAD_ROW->DATA = 0x07;   /* enable row 3 */
+delayUs(2);      /* wait for signal to settle */
+
+col = KEYPAD_COL->DATA & 0xF0;
+if (col != 0xF0) break;
+ 
+return 0;      /* if no key is pressed */
+}
