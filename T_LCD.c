@@ -33,8 +33,26 @@ if (key != 0)
 {
 LCD_data(key);   /* display the key label */
 }
+  
 else
 LCD_data(' ');
 delayMs(20);    /* wait for 20 mS */
 }
+}
+
+#define KEYPAD_ROW GPIOE
+#define KEYPAD_COL GPIOC
+
+void keypad_init(void)
+{
+SYSCTL->RCGCGPIO |= 0x04; 
+SYSCTL->RCGCGPIO |= 0x10; 
+ 
+KEYPAD_ROW->DIR |= 0x0F; 
+KEYPAD_ROW->DEN |= 0x0F; 
+KEYPAD_ROW->ODR |= 0x0F; 
+ 
+KEYPAD_COL->DIR &= ~0xF0; 
+KEYPAD_COL->DEN |= 0xF0; 
+KEYPAD_COL->PUR |= 0xF0; 
 }
