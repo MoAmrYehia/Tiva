@@ -126,3 +126,9 @@ void printstring(char *str)
 		UART5_Transmitter(*(str++));
 	}
 }
+void Delay(unsigned long counter)
+{
+	unsigned long i = 0;
+	
+	for(i=0; i< counter*1000; i++);
+}
