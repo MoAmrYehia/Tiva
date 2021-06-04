@@ -114,3 +114,8 @@ void UART5_init(void)
     GPIOE->AMSEL = 0;    // Turn off analg function
     GPIOE->PCTL = 0x00110000;     // configure PE4 and PE5 for UART 
 }
+void UART5_Transmitter(unsigned char data)  
+{
+    while((UART5->FR & (1<<5)) != 0); // wait until Tx buffer not full 
+    UART5->DR = data;                  // before giving it another byte 
+}
