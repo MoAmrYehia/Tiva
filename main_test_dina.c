@@ -16,3 +16,6 @@
 #include "driverlib/gpio.h"
 #include "driverlib/pin_map.h"
 #include "driverlib/uart.h"
+
+char* saatAyarla(char str[]);
+void readGPSModule();
