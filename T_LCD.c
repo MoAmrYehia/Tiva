@@ -32,8 +32,7 @@ key = keypad_getkey();    /* read the keypad */
 if (key != 0)   
 {
 LCD_data(key);   /* display the key label */
-}
-  
+} 
 else
 LCD_data(' ');
 delayMs(20);    /* wait for 20 mS */
@@ -57,3 +56,21 @@ KEYPAD_COL->DIR &= ~0xF0;
 KEYPAD_COL->DEN |= 0xF0; 
 KEYPAD_COL->PUR |= 0xF0; 
 }
+
+/*function to read the keypad. */
+/* If a key is pressed, it returns the key label. else, it returns 0 */
+unsigned char keypad_getkey(void)
+{
+const unsigned char keymap[4][4] =
+{
+{ '1', '2', '3', 'A'},
+{ '4', '5', '6', 'B'},
+{ '7', '8', '9', 'C'},
+{ '*', '0', '#', 'D'},
+};
+int row, col;
+/* check to see if any key pressed first */
+KEYPAD_ROW->DATA = 0;             /* enable all rows */
+col = KEYPAD_COL->DATA & 0xF0;    /* read all columns */
+if (col == 0xF0) 
+   return 0;         /* no key pressed */
