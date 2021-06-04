@@ -32,3 +32,9 @@ int main(void)
     SysCtlPeripheralEnable(SYSCTL_PERIPH_UART2);
     UARTConfigSetExpClk(UART2_BASE,SysCtlClockGet(),9600,(UART_CONFIG_WLEN_8 | UART_CONFIG_PAR_NONE | UART_CONFIG_STOP_ONE));
     UARTEnable(UART2_BASE);
+    
+        while(1){
+        readGPSModule();
+    }
+
+}
