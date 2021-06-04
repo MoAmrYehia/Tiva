@@ -43,6 +43,7 @@ delayMs(20);    /* wait for 20 mS */
 #define KEYPAD_ROW GPIOE
 #define KEYPAD_COL GPIOC
 
+/*initialize the ports connected to the keypad */
 void keypad_init(void)
 {
 SYSCTL->RCGCGPIO |= 0x04; 
