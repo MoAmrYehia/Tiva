@@ -45,16 +45,16 @@ delayMs(20);    /* wait for 20 mS */
 /*initialize the ports connected to the keypad */
 void keypad_init(void)
 {
-SYSCTL->RCGCGPIO |= 0x04; 
-SYSCTL->RCGCGPIO |= 0x10; 
+SYSCTL->RCGCGPIO |= 0x04;    /* enable clock to PORTC */
+SYSCTL->RCGCGPIO |= 0x10;    /* enable clock to PORTE */
  
-KEYPAD_ROW->DIR |= 0x0F; 
-KEYPAD_ROW->DEN |= 0x0F; 
-KEYPAD_ROW->ODR |= 0x0F; 
+KEYPAD_ROW->DIR |= 0x0F;     /* set row pins 3-0 as output */
+KEYPAD_ROW->DEN |= 0x0F;     /* set row pins 3-0 as digital pins */
+KEYPAD_ROW->ODR |= 0x0F;     /* set row pins 3-0 as open drain */
  
-KEYPAD_COL->DIR &= ~0xF0; 
-KEYPAD_COL->DEN |= 0xF0; 
-KEYPAD_COL->PUR |= 0xF0; 
+KEYPAD_COL->DIR &= ~0xF0;    /* set column pin 7-4 as input */
+KEYPAD_COL->DEN |= 0xF0;     /* set column pin 7-4 as digital pins */
+KEYPAD_COL->PUR |= 0xF0;     /* enable pull-ups for pin 7-4 */
 }
 
 /*function to read the keypad. */
