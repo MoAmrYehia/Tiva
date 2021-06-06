@@ -237,7 +237,7 @@ while(c0!='$')
 																		if(strcmp(parseValue[ss],"A")==0&&(parseValue[ss+1][0]=='3')){
 																			latitude =strtod(parseValue[ss+1],&C);
 																			longitude=strtod(parseValue[ss+3],&C);
-                                    //latitude=atof(parseValue[ss+1]);
+                                    //latitude=atof(parseValue[ss+1]); make a problem
                                    // longitude=atof(parseValue[ss+3]);
 
 
@@ -257,7 +257,7 @@ while(c0!='$')
                                     sprintf(longitudeResult, "%f", result);
 
 
-                                    //printf("https://www.google.com/maps/place/%s+%s \n",latitudeResult,longitudeResult);
+                                    
                                     //tarih duzeltme
                                     for(i=0;i<6;i++){
                                         tarih[j]=parseValue[index-2][i];
