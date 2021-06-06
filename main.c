@@ -96,15 +96,13 @@ int main(void)
 			LCD_CMD(0x80);
 			Delay_Milli(500);
 			
-		//Print_Char(Blutooth_Read());
 			Blutooth_Write('h');
         readGPSModule();
 			
 				
 			if(f==4)
 			{
-				//Distance+= getDistance(coordinates[0],coordinates[1],coordinates[2],coordinates[3]);
-				//Distance+=distance(30.116296,31.291963,30.116313,31.291983);
+				
 				Distance+=distance(coordinates[0],coordinates[1],coordinates[2],coordinates[3]);
 				coordinates[0]=coordinates[2];
 				coordinates[1]=coordinates[3];
