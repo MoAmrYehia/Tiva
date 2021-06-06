@@ -126,35 +126,7 @@ int main(void)
 			
     }
 		
-	/*
-		LCD_CMD(0x01);
-		LCD_CMD(0x80);
-		Delay_Milli(500);
-		LCD_WRITE('H');
-		Delay_Milli(1);
-		LCD_WRITE('E');
-		Delay_Milli(1);
-		LCD_WRITE('L');
-		Delay_Milli(1);
-		LCD_WRITE('O');
-		Delay_Milli(1);
-		LCD_WRITE('O');
-		Delay_Milli(1);
-		LCD_WRITE(' ');
-		Delay_Milli(1);
-		LCD_WRITE('W');
-		Delay_Milli(1);
-		LCD_WRITE('O');
-		Delay_Milli(1);
-		LCD_WRITE('R');
-		Delay_Milli(1);
-		LCD_WRITE('L');
-		Delay_Milli(1);
-		LCD_WRITE('D');
-		Delay_Milli(1);*/
-		/*
-		LCD_WRITE(4);
-		Delay_Milli(1);*/
+	
 		
 		
 
