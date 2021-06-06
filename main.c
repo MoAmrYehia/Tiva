@@ -83,43 +83,7 @@ int main(void)
 		GPIOF->DIR |= 0x0E;  //MAKE LEDS
 		GPIOF->DEN |=0x0E;
 		GPIOF->DATA &=~ 0x0E;  // LEDS OFF
-		/*
-		Print_String("Type Ron to turn led on, And Roff to turn it off:  ");
-		LCD_CMD(0x01);
-		LCD_CMD(0x80);*/
-		/*while(1)
-		{
-			
-			Print_String("Type Ron to turn led on, And Roff to turn it off:  ");
-			
-			
-			for(i=0;i<4;i++)
-			{
-				ss[i]=Read_Char();
-			}
-			
-				Print_String("\n\r");
-			
-			
-				if(ss[0]=='R'&&ss[1]=='o'&&ss[2]=='n')
-				{
-					GPIOF->DATA |=0x02;
-				}
-				else if(ss[0]=='R' && ss[1]=='o'&&ss[2]=='f'&&ss[3]=='f')
-					GPIOF->DATA &=~0x02;
-			if(ss[0]=='B'&&ss[1]=='o'&&ss[2]=='n')
-				{
-					GPIOF->DATA |=0x04;
-				}
-				else if(ss[0]=='B' && ss[1]=='o'&&ss[2]=='f'&&ss[3]=='f')
-					GPIOF->DATA &=~0x04;
-				if(ss[0]=='G'&&ss[1]=='o'&&ss[2]=='n')
-				{
-					GPIOF->DATA |=0x08;
-				}
-				else if(ss[0]=='G' && ss[1]=='o'&&ss[2]=='f'&&ss[3]=='f')
-					GPIOF->DATA &=~0x08;
-	*/
+		
 
     while(Distance<dis)
     {
