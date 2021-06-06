@@ -30,9 +30,7 @@ int main(void)
 	double Distance=0.0,display=0.0;
 	char arr[sizeof(display)];
 	uint32_t i;
-	//double a=2.65;
-	//char darr[sizeof(a)];
-	//memcpy(darr,&a,sizeof(a));
+	
 	
 	
 	Systic_init();
