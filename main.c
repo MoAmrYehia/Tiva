@@ -100,13 +100,13 @@ int main(void)
 			{
 				
 				Distance+=distance(coordinates[0],coordinates[1],coordinates[2],coordinates[3]);
-				coordinates[0]=coordinates[2];
-				coordinates[1]=coordinates[3];
+				coordinates[0]=coordinates[2];//swat lat
+				coordinates[1]=coordinates[3];//swap lon
 				f=2;
 			}
 			
 			display=Distance;
-			//display=92.75;
+			
 			
 			
 			
