@@ -87,11 +87,7 @@ int main(void)
 
     while(Distance<dis)
     {
-			//int n=7;
-			//char ccc=n+'0';
-		
-		//Delay_Milli(500);
-		//LCD_WRITE(ccc);
+			
 			LCD_CMD(0x01);
 			LCD_CMD(0x80);
 			Delay_Milli(500);
