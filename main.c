@@ -74,7 +74,7 @@ int main(void)
 
     UART2->LCRH |=  0x70; //(0x3<<5)|(1<<4);       //0x60; //desired serial parameter
     UART2->CC= 0x0;        //select system clock
-    UART2->CTL = 0x301;	 //(1<<0)|(1<<8)|(1<<9);			//0x301;  //enable UART by setting UARTEN bi in the UARTCTL REG
+    UART2->CTL = 0x301;	 //(1<<0)|(1<<8)|(1<<9);			
 		
 
     
