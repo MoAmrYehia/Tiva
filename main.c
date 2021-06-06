@@ -40,7 +40,7 @@ int main(void)
 	portE_init();
 	portF_init();
 	LCD_INIT();
-	HC05_init();
+	HC05_init(); //related to map view
 	
     //----------------------------UART initialization------------------------//
 		SYSCTL->RCGCUART |=  (1<<0);//4; //enable clock for UART2  port D
