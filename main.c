@@ -7,15 +7,15 @@
  */
  
  
-
-//Include Libraries
-#include "LCD_display.h"
+#include "blutooth.h"
 #include "ports_init.h"
+#include "LCD_display.h"
 #include "measure_distance.h"
 #include "test.h"
 #include "distance_calculator.h"
 
-#define dis 100
+
+#define dis 280
 
 
 double coordinates[4];
@@ -28,8 +28,12 @@ void readGPSModule();
 int main(void)
 {
 	double Distance=0.0,display=0.0;
-	char arr[6];
+	char arr[sizeof(display)];
 	uint32_t i;
+	//double a=2.65;
+	//char darr[sizeof(a)];
+	//memcpy(darr,&a,sizeof(a));
+	
 	
 	Systic_init();
   portA_init();
@@ -38,13 +42,14 @@ int main(void)
 	portE_init();
 	portF_init();
 	LCD_INIT();
+	HC05_init();
 	
-    //----------------------------UART0 initialization------------------------//
-		SYSCTL->RCGCUART |=  (1<<0); //enable clock for UART0  port A
-    SYSCTL->RCGCGPIO |=   (1<<0);  
-    GPIOA->AFSEL |=        (1<<1)|(1<<0);     //port PA0,PA1
-    GPIOA->PCTL |=     (1<<0)|(1<<4);    
-    GPIOA->DEN |=       (1<<0)|(1<<1);         
+    //----------------------------UART initialization------------------------//
+		SYSCTL->RCGCUART |=  (1<<0);//4; //enable clock for UART2  port D
+    SYSCTL->RCGCGPIO |=   (1<<0);  //  8;
+    GPIOA->AFSEL |=        (1<<1)|(1<<0);     //0xC0;   //port 6,7
+    GPIOA->PCTL |=     (1<<0)|(1<<4);    //0xC0;
+    GPIOA->DEN |=       (1<<0)|(1<<1);          //0xC0;
 
     UART0->CTL &=  ~(1<<0);      
     //after calculationg baudrate
@@ -56,12 +61,12 @@ int main(void)
     UART0->CTL =	 0x301;//(1<<0)|(1<<8)|(1<<9);			
 		
 		
- //----------------------------UART2 initialization------------------------//
+
     SYSCTL->RCGCUART |=  (1<<2);//4; //enable clock for UART2  port D
     SYSCTL->RCGCGPIO |=   (1<<3);  //  8;
 	    
-    GPIOD->AFSEL |=   0xC0; //(1<<6)|(1<<7);   //port 6,7
-    GPIOD->PCTL |= 0x11000000; //(GPIOD->PCTL& 0x00FFFFFF)+0x22000000;//|=   0xC0;
+    GPIOD->AFSEL |=   0xC0;//(1<<6)|(1<<7);   //port 6,7
+    GPIOD->PCTL |= 0x11000000;//(GPIOD->PCTL& 0x00FFFFFF)+0x22000000;//|=   0xC0;
     GPIOD->DEN |=  0xC0;   // (1<<6)|(1<<7);
 		//GPIOD->AMSEL &=~0xC0;
 		UART2->CTL &=~(1<<0);      //~(0x20);
@@ -69,7 +74,7 @@ int main(void)
     UART2->IBRD =0x00000145;
     UART2->FBRD =0x00000021;
 
-    UART2->LCRH |=  0x70;         //desired serial parameter
+    UART2->LCRH |=  0x70; //(0x3<<5)|(1<<4);       //0x60; //desired serial parameter
     UART2->CC= 0x0;        //select system clock
     UART2->CTL = 0x301;	 //(1<<0)|(1<<8)|(1<<9);			//0x301;  //enable UART by setting UARTEN bi in the UARTCTL REG
 		
@@ -80,7 +85,43 @@ int main(void)
 		GPIOF->DIR |= 0x0E;  //MAKE LEDS
 		GPIOF->DEN |=0x0E;
 		GPIOF->DATA &=~ 0x0E;  // LEDS OFF
-		
+		/*
+		Print_String("Type Ron to turn led on, And Roff to turn it off:  ");
+		LCD_CMD(0x01);
+		LCD_CMD(0x80);*/
+		/*while(1)
+		{
+			
+			Print_String("Type Ron to turn led on, And Roff to turn it off:  ");
+			
+			
+			for(i=0;i<4;i++)
+			{
+				ss[i]=Read_Char();
+			}
+			
+				Print_String("\n\r");
+			
+			
+				if(ss[0]=='R'&&ss[1]=='o'&&ss[2]=='n')
+				{
+					GPIOF->DATA |=0x02;
+				}
+				else if(ss[0]=='R' && ss[1]=='o'&&ss[2]=='f'&&ss[3]=='f')
+					GPIOF->DATA &=~0x02;
+			if(ss[0]=='B'&&ss[1]=='o'&&ss[2]=='n')
+				{
+					GPIOF->DATA |=0x04;
+				}
+				else if(ss[0]=='B' && ss[1]=='o'&&ss[2]=='f'&&ss[3]=='f')
+					GPIOF->DATA &=~0x04;
+				if(ss[0]=='G'&&ss[1]=='o'&&ss[2]=='n')
+				{
+					GPIOF->DATA |=0x08;
+				}
+				else if(ss[0]=='G' && ss[1]=='o'&&ss[2]=='f'&&ss[3]=='f')
+					GPIOF->DATA &=~0x08;
+	*/
 
     while(Distance<dis)
     {
@@ -93,27 +134,37 @@ int main(void)
 			LCD_CMD(0x80);
 			Delay_Milli(500);
 			
+		//Print_Char(Blutooth_Read());
+			Blutooth_Write('h');
         readGPSModule();
+			
 				
 			if(f==4)
 			{
+				//Distance+= getDistance(coordinates[0],coordinates[1],coordinates[2],coordinates[3]);
+				//Distance+=distance(30.116296,31.291963,30.116313,31.291983);
 				Distance+=distance(coordinates[0],coordinates[1],coordinates[2],coordinates[3]);
 				coordinates[0]=coordinates[2];
 				coordinates[1]=coordinates[3];
-				
 				f=2;
 			}
 			
 			display=Distance;
-			Delay_Milli(30000);
+			//display=92.75;
 			
-			memcpy(arr,&display,sizeof(display));
+			
+			
+			//memcpy(arr,&display,sizeof(display));
+			sprintf(arr,"%f",display);
 			for(i=0;i<6;i++)
 			{
 				
 				LCD_WRITE(arr[i]);
 				Delay_Milli(1);
 			}
+			if(Distance>dis)
+				GPIOF->DATA |=0x02;
+			Delay_Milli(30000);
 			
 			
 			
@@ -150,7 +201,7 @@ int main(void)
 		Delay_Milli(1);*/
 		
 		
-GPIOF->DATA |=0x02;
+
 
 }
 
@@ -158,15 +209,17 @@ GPIOF->DATA |=0x02;
 
 void readGPSModule(void){
     char c0,GPSValues[100],latitudeResult[10],longitudeResult[10],parseValue[12][20],*token,tarih[9],*saat,guncelSaat[9];
-	
+		char *C;
+	char  send[10];
     double latitude=0.0,longitude=0.0,seconds=0.0,result=0.0,minutes=0.0;
     const char comma[2] = ",";
     int index=0,degrees,i=0,j=0;
+	int ss=0;
 while(c0!='$')
 {
     while((UART2->FR &0x10)!=0);
 	c0= UART2->DR;
-	//Print_Char(c0);
+	
 }
 
     //recived data $GPRMC 
@@ -249,10 +302,15 @@ while(c0!='$')
 
 
                                 //parseValue[1] = A ise veri gecerli - V ise gecerli degil
-                                if(strcmp(parseValue[1],"A")==0){
-																	
-                                    latitude=atof(parseValue[2]);
-                                    longitude=atof(parseValue[4]);
+                                for(ss=0;ss<6;ss++)
+																		{
+																			
+																			
+																		if(strcmp(parseValue[ss],"A")==0&&(parseValue[ss+1][0]=='3')){
+																			latitude =strtod(parseValue[ss+1],&C);
+																			longitude=strtod(parseValue[ss+3],&C);
+                                    //latitude=atof(parseValue[ss+1]);
+                                   // longitude=atof(parseValue[ss+3]);
 
 
                                     //latitude calculation
@@ -302,25 +360,35 @@ while(c0!='$')
 																				
 																		
 																			coordinates[f]=atof(latitudeResult);
+																				
+																				Blutooth_Write('T');
+																				sprintf(send,"%f",coordinates[f]);
+																				Blutooth_Write_String(send);
 																				f++;
 																			coordinates[f]=atof(longitudeResult);
+																				Blutooth_Write('N');
+																				sprintf(send,"%f",coordinates[f]);
+																				Blutooth_Write_String(send);
 																				f++;
-																					
 																				
+																				//Delay_Milli(80000000/6);
+																				//	SysCtlDelay(SysCtlClockGet()/6);
+																				break;
 																				
 																				
 																		
 																				}
                                 else{
-																	LCD_WRITE('v');
+																	//LCD_WRITE('v');
                                  
-																	}
+																	}}
 
                              //   printf("");
                         }}}}}}}
 		else{
-																Delay_Milli(500);
-																	LCD_WRITE('v');
+			Print_String("hgfhgfgh");
+																//Delay_Milli(500);
+																	//LCD_WRITE('v');
                                     //printf("  GPS Verileri Okunuyor\n\n\n");
 																	}
 		

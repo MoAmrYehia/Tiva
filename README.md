@@ -1,1 +1,1 @@
-# GPS Tracker (using Tiva C)
+# GPS Tracker

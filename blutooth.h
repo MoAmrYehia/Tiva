@@ -9,16 +9,15 @@
 
 #include "ports_init.h"
 #include <stdio.h>
-#include <rt_misc.h>
 
 
 
 
 
-char Read_Char(void);
-void Print_Char(char c);
-void Print_String(char * s);
-char* Read_String(char d);
+void HC05_init(void);
+void Blutooth_Write(unsigned char data);
+void Blutooth_Write_String(char *str);
+char Blutooth_Read(void);
 
 
 

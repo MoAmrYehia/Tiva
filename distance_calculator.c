@@ -23,15 +23,25 @@
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 #include "distance_calculator.h"
-#include "math.h"
+#include "test.h"
+#include <math.h>
 
 
 double distance(double lat1, double lon1, double lat2, double lon2) {
     double theta, dist;
-    lat1 = sub_double(lat1);
-    lat2 = sub_double(lat2);
-    lon1 = sub_double(lon1);
-    lon2 = sub_double(lon2);
+	char *arr;
+	lat1 = sub_double(lat1);
+	lat2 = sub_double(lat2);
+	lon1 = sub_double(lon1);
+	lon2 = sub_double(lon2);
+	/*sprintf(arr,"%f",lat1);
+	Print_String(arr);
+	sprintf(arr,"%f",lon1);
+	Print_String(arr);
+	sprintf(arr,"%f",lat2);
+	Print_String(arr);
+	sprintf(arr,"%f",lon2);
+	Print_String(arr);*/
     if ((lat1 == lat2) && (lon1 == lon2)) {
         return 0;
     }
@@ -62,9 +72,8 @@ double rad2deg(double rad) {
     return (rad * 180 / pi);
 }
 
-
-double sub_double(double coordnate) {
-    return (floorf(coordnate*10000)/10000);
+double sub_double(double cordanate) {
+    return (floorf(cordanate*10000)/10000);
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/

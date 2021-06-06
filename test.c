@@ -1,3 +1,9 @@
+/*
+ * ports_init.c
+ *
+ *  Created on: May 26, 2021
+ *      Author: ehab
+ */
 //#include <TM4C123.h>
 #include "test.h"
 
@@ -8,7 +14,6 @@ char Read_Char(void)
 	c=UART0->DR;
 	return c;
 }
-
 void Print_Char(char c)
 {
 	while((UART0->FR &0x20)!=0);  //WAIT UNTILL TX BUFFER NOT FULL
