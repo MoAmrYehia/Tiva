@@ -92,7 +92,7 @@ int main(void)
 			LCD_CMD(0x80);
 			Delay_Milli(500);
 			
-			Blutooth_Write('h');
+			//Blutooth_Write('h');
         readGPSModule();
 			
 				
