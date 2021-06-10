@@ -109,11 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   @override
   Widget build(BuildContext context) {
-    /* markers.addAll([
-      Marker(markerId: MarkerId('value'),
-      position: LatLng(30.063397,31.281174),
-      infoWindow: InfoWindow(title: "Abbasya"))
-    ]);*/
+    
     return Scaffold(
         body: Stack(
           alignment: Alignment.center,
@@ -126,12 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
               initialCameraPosition:
               CameraPosition(target: LatLng(30.064101, 31.279242), zoom: 18.0),
               markers:Set.of(m),//Set.of(markers.values),//Set.of(m),
-              /*{
-                if(_origin !=null)
-                  _origin,
-              if(_destination !=null)
-                _destination
-      },*/
+              
               onTap: _addMarker,
               polylines: {
                 if(_info != null)
@@ -203,32 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     }
 
-/*
-    if (_origin == null || (_origin != null && _destination != null)) {
-      setState(() {
-        _origin = Marker(markerId: MarkerId('origin'),
-          infoWindow: const InfoWindow(title: 'origin'),
-          icon: BitmapDescriptor.defaultMarkerWithHue(
-              BitmapDescriptor.hueGreen),
-          position: pos,
-        );
-        _destination = null;
-        _info = null;
-      });
-    }
-    else {
-      setState(() {
-        _destination = Marker(markerId: MarkerId('destination'),
-          infoWindow: const InfoWindow(title: 'Destination'),
-          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-          position: pos,
-        );
-      });
 
-      final directions = await DirectionRepository().getDirections(
-          origin: _origin.position, destination: pos);
-      setState(() => _info = directions);
-    }*/
   }
 
 
@@ -334,17 +300,4 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-/*
-  void _onAddMarkerButtonPressed(){
-    setState(() {
-      _markers.add(Marker(markerId: _lastMapPosition.toString(),
-      position: _lastMapPosition,
-      icon: BitmapDescriptor.defaultMarker,));
-      _polyline.add(Polyline(polylineId: PolylineId(_lastMapPosition.toString()),
-        visible: true,
-        points: latlng,
-        color: Colors.blue,));
-    });
 
-  }
-}*/
