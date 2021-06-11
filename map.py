@@ -10,7 +10,7 @@ import pandas as pd
 apikey = "AIzaSyAyU5txJ86b25-_l0DW-IldSKGGYqQJn3M"
 
 # Serial connection to Tiva C board
-ser = serial.Serial("COM10", 9600)
+ser = serial.Serial("COM10", 115700)
 data = ser.readline(5000).decode('ascii')
 
 real_data = False
