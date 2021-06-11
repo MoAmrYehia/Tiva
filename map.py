@@ -6,38 +6,65 @@ Created on Mon Jun  7 16:57:09 2021
 """
 
 import gmplot
+import gmaps
 import pandas as pd
-apikey = "AIzaSyAyU5txJ86b25-_l0DW-IldSKGGYqQJn3M"
+import serial
+from serial import Serial
+import sys
+
+readings = []
+longitude_list = []
+latitude_list = []
 
 # Serial connection to Tiva C board
-ser = serial.Serial("COM10", 115700)
-data = ser.readline(5000).decode('ascii')
+try:
+    ser = serial.Serial('/dev/ttyACM0',115200)
+    #ser = serial.Serial("COM10", 115700)
+except:
+    print("Unable to open serial port")
+    
+#The following code will read the serial 
+while True:
+    try:
+        line = ser.readline()
+        print(line)
+        readings.append(line)
+    except:
+        print ("Unable to read from device")
+        sys.exit(0)
+        
+# Formatting the readings: from string to int
+    
+for i in range(len(readings)):
+    readings[i] = int(i)
+    
+# Storing the readings in Lists 
+    
+latitude_list.append(readings[0])
+longitude_list.append(readings[1])
+date = readings[3]
 
-real_data = False
-centre = [30.3164945, 78.03219179999999] # Add faculty location
-
-# Reading GPS DATA from csv
-
-if real_data:
-    df = pd.read_csv(r"\locations.csv") # files that contains gps readings
-    latitude_list = df.iloc[:, 0] # selecting first column
-    longitude_list =  df.iloc[:, 1] # selecting second column 
+for i in range(3, len(readings)):
+    if(i%3==0):
+        latitude_list.append(readings[i])
+        longitude_list.append(readings[i+1])
     
 
-    
-# Sample Code for testing
-if not real_data:
-    latitude_list = [30.3358376, 30.307977, 30.3216419]
-    longitude_list = [77.8701919, 78.048457, 78.0413095]
-    #locations = [(30.3358376,77.8701919),(30.307977, 78.048457),(30.3216419,78.0413095)]
+# Mapping Code
 
+apikey = "AIzaSyAyU5txJ86b25-_l0DW-IldSKGGYqQJn3M"
+latitude_list = [ 30.3358376, 30.307977, 30.3216419 ]
+longitude_list = [ 77.8701919, 78.048457, 78.0413095 ]
 
-# Generating trajectory  
-gmap3 = gmplot.GoogleMapPlotter(centre[0],
-                                centre[1], 13, apikey = apikey)
-
-gmap3.plot(latitude_list, longitude_list, 
-           'blue', edge_width = 2.5)
+gmap3 = gmplot.GoogleMapPlotter(30.0634725239,
+                                31.27879477537, 13) # faculty location
   
-gmap3.draw(r"G:\aaaaaaa\Uni\Third Year\Second Term\google_map_2.html" )
 
+gmap3.scatter(latitude_list, longitude_list, '#FF0000',
+                                size = 40, marker = True)
+  
+# Drawing Trajectory
+gmap3.plot(latitude_list, longitude_list,
+                   color = 'cornflowerblue')
+# Saving the map  
+gmap3.draw(r"G:\aaaaaaa\Uni\Third Year\Second Term\google_map_2.html")
