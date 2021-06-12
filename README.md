@@ -6,12 +6,19 @@
 
 </p>
 <p align="center">
+    
     <a href="https://github.com/MoAmrYehia/Tiva/graphs/contributors" alt="Contributors">
         <img src="https://img.shields.io/github/contributors/MoAmrYehia/Tiva" /></a>
     <a href="https://github.com/MoAmrYehia/Software_League_app/pulse" alt="Activity">
         <img src="https://img.shields.io/github/commit-activity/w/MoAmrYehia/Software_League_app"/></a>
     <a href="https://github.com/MoAmrYehia/Software_League_app" alt="Python">
         <img src="https://img.shields.io/pypi/pyversions/3"/></a>
+    
+    <a href="https://github.com/MoAmrYehia/Tiva/stargazers">
+        <img alt="GitHub stars" src="https://img.shields.io/github/stars/MoAmrYehia/Tiva"></a>
+    
+    <a href="https://github.com/MoAmrYehia/Tiva/network">
+        <img alt="GitHub forks" src="https://img.shields.io/github/forks/MoAmrYehia/Tiva"></a>
     
 </p>
 
