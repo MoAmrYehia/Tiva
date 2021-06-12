@@ -4,6 +4,8 @@
     <img src="https://raw.githubusercontent.com/MoAmrYehia/Software_League_app/main/Obj/ico/TMS_Logo.png">
 </p>
 
+</p>
+
 <p align="center">
     
     <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/MoAmrYehia/Tiva?style=plastic">
@@ -15,6 +17,7 @@
         <img alt="GitHub forks" src="https://img.shields.io/github/forks/MoAmrYehia/Tiva"></a>
     
 </p>
+
 
 This is a University project, where students could apply software engineering concepts on a real-life project. At the end of this project, my team would be able to submit UML diagrams, system requirements and user interface design.
 
