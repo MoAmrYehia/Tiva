@@ -26,7 +26,8 @@ The TM4C123G LaunchPad gets the longitude and the latitude from the GPS module. 
 </p>
 
 ## Software
->Download the exe file from this [link](http://bit.ly/3iiZOd6) and run the program on Windos.
+You can find the android application on the [Master](https://github.com/MoAmrYehia/Tiva/tree/master) branch. 
+>Download the apk file from this [link](http://bit.ly/3iiZOd6) and run the program on Android OS.
 
 
 ## Current Contributors
