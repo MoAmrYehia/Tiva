@@ -16,10 +16,7 @@ This is a University project, where students could apply Microprocessor Based Sy
 
 
 ## Task Monitoring System
-Today, Most of the available task monitoring and management systems only offer limited features to the user. Also, they don't support multiple features for both admins and users; they do not offer smart scheduling or schedule optimizing, or even user behavior analysis which assists the user in planning their daily, weekly, or monthly tasks.
-
-In our project we propose the development of a smart task monitoring application, which provides for the user and the admin an optimized schedule and also takes into account various constraints like appointment times, activity durations, and timing, and also pushes notifications about updates and other important features.
-
+In this project you will develop a GPS tracking system using TM4C123G LaunchPad, the system should store the moved trajectory after power-on until a destination point is reached and calculate the taken distance.
 ## How We Built It
 TMS is desktop application. We used PyQt5 to create an interactive GUI. PyQt5 allowed us to built a full user experience. For the backend we used python to enhance different functionality and manage database. Externally, we used a voice recognition API to enable people to interact with TMS services using voice and text. 
 
