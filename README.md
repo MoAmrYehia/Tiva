@@ -5,17 +5,10 @@
 </p>
 
 
-<p align="center">    
-    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/MoAmrYehia/Tiva?style=plastic">
-    
-    <a href="https://github.com/MoAmrYehia/Tiva/stargazers">
-        <img alt="GitHub stars" src="https://img.shields.io/github/stars/MoAmrYehia/Tiva"></a>
-    
-    <a href="https://github.com/MoAmrYehia/Tiva/network">
-        <img alt="GitHub forks" src="https://img.shields.io/github/forks/MoAmrYehia/Tiva"></a>
-    
-</p>
 
+![GitHub top language](https://img.shields.io/github/languages/top/MoAmrYehia/Tiva?style=plastic)
+[![GitHub forks](https://img.shields.io/github/forks/MoAmrYehia/Tiva)](https://github.com/MoAmrYehia/Tiva/network)
+[![GitHub stars](https://img.shields.io/github/stars/MoAmrYehia/Tiva)](https://github.com/MoAmrYehia/Tiva/stargazers)
 
 This is a University project, where students could apply software engineering concepts on a real-life project. At the end of this project, my team would be able to submit UML diagrams, system requirements and user interface design.
 
