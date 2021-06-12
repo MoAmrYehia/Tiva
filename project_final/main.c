@@ -48,11 +48,11 @@ int main(void)
 	HC05_init();
 	
     //----------------------------UART initialization------------------------//
-		SYSCTL->RCGCUART |=  (1<<0);//4; //enable clock for UART2  port D
+		SYSCTL->RCGCUART |=  (1<<0); //enable clock for UART0  port A
     SYSCTL->RCGCGPIO |=   (1<<0);  //  8;
-    GPIOA->AFSEL |=        (1<<1)|(1<<0);     //0xC0;   //port 6,7
-    GPIOA->PCTL |=     (1<<0)|(1<<4);    //0xC0;
-    GPIOA->DEN |=       (1<<0)|(1<<1);          //0xC0;
+    GPIOA->AFSEL |=        (1<<1)|(1<<0);        //port 1,2
+    GPIOA->PCTL |=     (1<<0)|(1<<4);    
+    GPIOA->DEN |=       (1<<0)|(1<<1);          
 
     UART0->CTL &=  ~(1<<0);      
     //after calculationg baudrate
@@ -88,64 +88,22 @@ int main(void)
 		GPIOF->DIR |= 0x0E;  //MAKE LEDS
 		GPIOF->DEN |=0x0E;
 		GPIOF->DATA &=~ 0x0E;  // LEDS OFF
-		/*
-		Print_String("Type Ron to turn led on, And Roff to turn it off:  ");
-		LCD_CMD(0x01);
-		LCD_CMD(0x80);*/
-		/*while(1)
-		{
-			
-			Print_String("Type Ron to turn led on, And Roff to turn it off:  ");
-			
-			
-			for(i=0;i<4;i++)
-			{
-				ss[i]=Read_Char();
-			}
-			
-				Print_String("\n\r");
-			
-			
-				if(ss[0]=='R'&&ss[1]=='o'&&ss[2]=='n')
-				{
-					GPIOF->DATA |=0x02;
-				}
-				else if(ss[0]=='R' && ss[1]=='o'&&ss[2]=='f'&&ss[3]=='f')
-					GPIOF->DATA &=~0x02;
-			if(ss[0]=='B'&&ss[1]=='o'&&ss[2]=='n')
-				{
-					GPIOF->DATA |=0x04;
-				}
-				else if(ss[0]=='B' && ss[1]=='o'&&ss[2]=='f'&&ss[3]=='f')
-					GPIOF->DATA &=~0x04;
-				if(ss[0]=='G'&&ss[1]=='o'&&ss[2]=='n')
-				{
-					GPIOF->DATA |=0x08;
-				}
-				else if(ss[0]=='G' && ss[1]=='o'&&ss[2]=='f'&&ss[3]=='f')
-					GPIOF->DATA &=~0x08;
-	*/
+		
 
     while(Distance<dis)
     {
-			//int n=7;
-			//char ccc=n+'0';
-		
-		//Delay_Milli(500);
-		//LCD_WRITE(ccc);
+			/
 			LCD_CMD(0x01);
 			LCD_CMD(0x80);
 			Delay_Milli(500);
 			
-		//Print_Char(Blutooth_Read());
-			//Blutooth_Write('h');
+		
         readGPSModule();
 			
 				
 			if(f==4)
 			{
-				//Distance+= getDistance(coordinates[0],coordinates[1],coordinates[2],coordinates[3]);
-				//Distance+=distance(30.116296,31.291963,30.116313,31.291983);
+				
 				Distance+=distance(coordinates[0],coordinates[1],coordinates[2],coordinates[3]);
 				coordinates[0]=coordinates[2];
 				coordinates[1]=coordinates[3];
@@ -153,7 +111,7 @@ int main(void)
 			}
 			
 			display=Distance;
-			//display=92.75;
+			
 			
 			
 			
@@ -189,35 +147,7 @@ int main(void)
 			
     }
 		
-	/*
-		LCD_CMD(0x01);
-		LCD_CMD(0x80);
-		Delay_Milli(500);
-		LCD_WRITE('H');
-		Delay_Milli(1);
-		LCD_WRITE('E');
-		Delay_Milli(1);
-		LCD_WRITE('L');
-		Delay_Milli(1);
-		LCD_WRITE('O');
-		Delay_Milli(1);
-		LCD_WRITE('O');
-		Delay_Milli(1);
-		LCD_WRITE(' ');
-		Delay_Milli(1);
-		LCD_WRITE('W');
-		Delay_Milli(1);
-		LCD_WRITE('O');
-		Delay_Milli(1);
-		LCD_WRITE('R');
-		Delay_Milli(1);
-		LCD_WRITE('L');
-		Delay_Milli(1);
-		LCD_WRITE('D');
-		Delay_Milli(1);*/
-		/*
-		LCD_WRITE(4);
-		Delay_Milli(1);*/
+	
 		
 		
 
@@ -250,7 +180,7 @@ while(c0!='$')
 {
         while((UART2->FR & 0x10)!=0);
 			c1=UART2->DR;
-			//Print_Char(c1);
+			
 }
         
         if(c1=='G'){
@@ -259,7 +189,7 @@ while(c0!='$')
 {
             while((UART2->FR & 0x10)!=0);
             c2=UART2->DR;
-					//Print_Char(c2);
+					
 }
             if(c2=='P'){
 								char c3;
@@ -267,7 +197,7 @@ while(c0!='$')
 {
                 while((UART2->FR & 0x10)!=0);
                 c3=UART2->DR;
-							//Print_Char(c3);
+							
 }
                 if(c3=='R'){
 										char c4;
@@ -275,7 +205,7 @@ while(c0!='$')
 {
                     while((UART2->FR & 0x10)!=0);
                     c4=UART2->DR;
-									//Print_Char(c4);
+									
 }
                     if(c4=='M'){
 											char c5;
@@ -283,7 +213,7 @@ while(c0!='$')
 {
                         while((UART2->FR & 0x10)!=0);
                         c5=UART2->DR;
-										//	Print_Char(c5);
+										
 }
                         if(c5=='C'){
 														char c6;
@@ -291,7 +221,7 @@ while(c0!='$')
 {
                             while((UART2->FR & 0x10)!=0);
                             c6=UART2->DR;
-													//Print_Char(c6);
+													
 }
                             if(c6==','){
 																char c7;
@@ -300,7 +230,7 @@ while(c0!='$')
                                 while((UART2->FR & 0x10)!=0);
                                 c7=UART2->DR;
 															
-														//	Print_Char(c7);
+														
 
                                 //GET  gps values as array and check sum
 															
@@ -320,7 +250,6 @@ while(c0!='$')
                                     index++;}
 
 
-                                //parseValue[1] = A ise veri gecerli - V ise gecerli degil
                                 for(ss=0;ss<6;ss++)
 																		{
 																			
@@ -328,7 +257,7 @@ while(c0!='$')
 																		if(strcmp(parseValue[ss],"A")==0&&(parseValue[ss+1][0]=='3')){
 																			latitude =strtod(parseValue[ss+1],&C);
 																			longitude=strtod(parseValue[ss+3],&C);
-                                    //latitude=atof(parseValue[ss+1]);
+                                    //latitude=atof(parseValue[ss+1]);  MAKE A PROPLEM
                                    // longitude=atof(parseValue[ss+3]);
 
 
@@ -348,8 +277,7 @@ while(c0!='$')
                                     sprintf(longitudeResult, "%f", result);
 
 
-                                    //printf("https://www.google.com/maps/place/%s+%s \n",latitudeResult,longitudeResult);
-                                    //tarih duzeltme
+                                    
                                     for(i=0;i<6;i++){
                                         tarih[j]=parseValue[index-2][i];
                                         if(i==1 || i==3){
@@ -359,7 +287,7 @@ while(c0!='$')
                                     tarih[8]='\0';
 
 
-                                    //saat düzeltme +3 UTC ayarlama
+                                    
 																				
                                     saat=saatAyarla(parseValue[ss-1]);
                                     j=0;
@@ -371,14 +299,7 @@ while(c0!='$')
                                         j++;}
                                     guncelSaat[8]='\0';
 																				
-																	//	Print_String(latitudeResult);
-																		//Print_String("\n\r");
-																		//Print_String(longitudeResult);
-																			//Print_String("\n\r");
-																		//Print_String(tarih);
-																			//	Print_String("\n\r");
-																				//Print_String(guncelSaat);
-																				//Print_String("\n\r");
+																	
 																		while(tt<2)
 																		{
 																			min[tt]=guncelSaat[3+tt];
