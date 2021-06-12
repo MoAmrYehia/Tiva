@@ -7,7 +7,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/MoAmrYehia/Tiva/graphs/contributors" alt="Contributors">
-        <img src="https://img.shields.io/github/contributors/MoAmrYehia/Software_League_app" /></a>
+        <img src="https://img.shields.io/github/contributors/MoAmrYehia/Tiva" /></a>
     <a href="https://github.com/MoAmrYehia/Software_League_app/pulse" alt="Activity">
         <img src="https://img.shields.io/github/commit-activity/w/MoAmrYehia/Software_League_app"/></a>
     <a href="https://github.com/MoAmrYehia/Software_League_app" alt="Python">
