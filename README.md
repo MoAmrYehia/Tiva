@@ -6,11 +6,10 @@
 
 
 <p style="text-align: center;">
-
-
-![GitHub top language](https://img.shields.io/github/languages/top/MoAmrYehia/Tiva?style=plastic)
-[![GitHub forks](https://img.shields.io/github/forks/MoAmrYehia/Tiva)](https://github.com/MoAmrYehia/Tiva/network)
-[![GitHub stars](https://img.shields.io/github/stars/MoAmrYehia/Tiva)](https://github.com/MoAmrYehia/Tiva/stargazers)
+    ![GitHub top language](https://img.shields.io/github/languages/top/MoAmrYehia/Tiva?style=plastic)
+    [![GitHub forks](https://img.shields.io/github/forks/MoAmrYehia/Tiva)](https://github.com/MoAmrYehia/Tiva/network)
+    [![GitHub stars](https://img.shields.io/github/stars/MoAmrYehia/Tiva)](https://github.com/MoAmrYehia/Tiva/stargazers)
+    ![GitHub language count](https://img.shields.io/github/languages/count/MoAmrYehia/Tiva)
     
 </p>
 
