@@ -25,7 +25,7 @@ The TM4C123G LaunchPad gets the longitude and the latitude from the GPS module. 
     <img src="https://raw.githubusercontent.com/MoAmrYehia/res/master/GPS.png" width="400" height="400">
 </p>
 
-## Installation and Running
+## Software
 >Download the exe file from this [link](http://bit.ly/3iiZOd6) and run the program on Windos.
 
 
