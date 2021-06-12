@@ -19,7 +19,7 @@ This is a University project, where students could apply Microprocessor Based Sy
 In this project you will develop a GPS tracking system using TM4C123G LaunchPad, the system should store the moved trajectory after power-on until a destination point is reached and calculate the taken distance.
 
 ## How We Built It
-TMS is desktop application. We used PyQt5 to create an interactive GUI. PyQt5 allowed us to built a full user experience. For the backend we used python to enhance different functionality and manage database. Externally, we used a voice recognition API to enable people to interact with TMS services using voice and text. 
+The TM4C123G LaunchPad gets the longitude and the latitude from the GPS module. Then, we calculate the displacements between many points to get the distance. Finally, we display the result on the LCD module and we plot the path on an android application that is connected via a Bluetooth module. 
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/MoAmrYehia/res/master/GPS.png" width="400" height="400">
