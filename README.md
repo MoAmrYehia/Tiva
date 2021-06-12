@@ -1,7 +1,7 @@
 # GPS Tracker
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/MoAmrYehia/Software_League_app/main/Obj/ico/TMS_Logo.png">
+    <img src="https://raw.githubusercontent.com/MoAmrYehia/res/master/Blue%20Red%20Sports%20Center%20Logo.png">
 </p>
 
 
