@@ -154,7 +154,7 @@ void portF_init(void)
 void GPIOF_Handler(void)
 {
       GPIO_PORTF_ICR_R |= 0x10;
-      GPIO_PORTF_DATA_R = 0x01;
+      GPIO_PORTF_DATA_R = 0x02;
 
 }
 void Systic_init(void)
