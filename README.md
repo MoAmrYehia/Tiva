@@ -22,7 +22,7 @@ In this project you will develop a GPS tracking system using TM4C123G LaunchPad,
 TMS is desktop application. We used PyQt5 to create an interactive GUI. PyQt5 allowed us to built a full user experience. For the backend we used python to enhance different functionality and manage database. Externally, we used a voice recognition API to enable people to interact with TMS services using voice and text. 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/MoAmrYehia/Software_League_app/main/Obj/ico/DBMS ER diagram (UML notation).png" width="400" height="400">
+    <img src="https://raw.githubusercontent.com/MoAmrYehia/res/master/GPS.png" width="400" height="400">
 </p>
 
 ## Installation and Running
