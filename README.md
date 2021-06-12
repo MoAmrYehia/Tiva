@@ -4,10 +4,8 @@
     <img src="https://raw.githubusercontent.com/MoAmrYehia/Software_League_app/main/Obj/ico/TMS_Logo.png">
 </p>
 
-</p>
 
-<p align="center">
-    
+<p align="center">    
     <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/MoAmrYehia/Tiva?style=plastic">
     
     <a href="https://github.com/MoAmrYehia/Tiva/stargazers">
