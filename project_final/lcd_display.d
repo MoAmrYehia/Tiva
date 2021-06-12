@@ -1,0 +1,17 @@
+.\lcd_display.o: Tiva\LCD_display.c
+.\lcd_display.o: Tiva\LCD_display.h
+.\lcd_display.o: Tiva\ports_init.h
+.\lcd_display.o: C:\Keil\ARM\Inc\TI\TM4C123\TM4C123.h
+.\lcd_display.o: C:\Keil\ARM\Inc\TI\TM4C123\TM4C123GH6PM.h
+.\lcd_display.o: C:\Keil\ARM\CMSIS\Include\core_cm4.h
+.\lcd_display.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\lcd_display.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\lcd_display.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\lcd_display.o: C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h
+.\lcd_display.o: C:\Keil\ARM\Inc\TI\TM4C123\system_TM4C123.h
+.\lcd_display.o: C:\Keil\ARM\ARMCC\bin\..\include\stdbool.h
+.\lcd_display.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\lcd_display.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\lcd_display.o: C:\Keil\ARM\ARMCC\bin\..\include\inttypes.h
+.\lcd_display.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\lcd_display.o: C:\Keil\EE319Kware\inc/tm4c123gh6pm.h

@@ -1,0 +1,13 @@
+--cpu Cortex-M4.fp
+".\startup_tm4c123.o"
+".\main.o"
+".\ports_init.o"
+".\system_tm4c123.o"
+".\lcd_display.o"
+".\measure_distance.o"
+".\test.o"
+".\distance_calculator.o"
+".\blutooth.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Tiva_GPS.map" -o .\Tiva_GPS.axf
