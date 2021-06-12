@@ -108,17 +108,7 @@ void portD_init(void)
     GPIO_PORTD_DIR_R |=0xFC; //output
     GPIO_PORTD_DEN_R |=0xFC;   //Digital
     GPIO_PORTD_PUR_R &=0x03;  //PULL UP RESISTOR
-	/*
-		
-	  GPIO_PORTD_LOCK_R = 0x4C4F434B;
-
-    GPIO_PORTD_CR_R |=0x3C;   // control reg
-    GPIO_PORTD_AFSEL_R &=~0x0C;
-    GPIO_PORTD_PCTL_R = ~0x00;  //clear
-    GPIO_PORTD_AMSEL_R &=~0x30; // no analog function
-    GPIO_PORTD_DIR_R |= 0x3F; // set pin 2 as input
-    GPIO_PORTD_DEN_R |=0x3F;   //enable bins
-    GPIO_PORTD_PDR_R |=0x04;  //PULL down RESISTOR*/
+	
 }
 
 void portE_init(void)
@@ -137,13 +127,7 @@ void portE_init(void)
 	
 	
 
-    //GPIO_PORTB_CR_R |=0xFF;   // control reg
-   /* GPIO_PORTE_AFSEL_R &=~0x3F;
-    GPIO_PORTE_PCTL_R =0x00000000;  //clear
-    GPIO_PORTE_AMSEL_R &=~0x3F; // no analog function
-
-    GPIO_PORTE_DIR_R |=0x3F; // set pin  as output
-    GPIO_PORTE_DEN_R |=0x3F;   //enable bins*/
+    
 
 }
 
@@ -158,6 +142,19 @@ void portF_init(void)
     GPIO_PORTF_PUR_R =0x11;  //PULL UP RESISTOR
     GPIO_PORTF_DIR_R |=0x0E; // set pin  as output
     GPIO_PORTF_DEN_R |=0x1F;   //enable bins
+    GPIO_PORTF_IS_R &=~ 0x10;  //edge sensitive
+    GPIO_PORTF_IBE_R &=~ 0x10; //Both direction
+    GPIO_PORTF_IEV_R &=~ 0x10;   //falling edge
+    GPIO_PORTF_ICR_R &= 0x10;
+    GPIO_PORTF_IM_R |= 0x10;
+    NVIC_PR17_R =(NVIC_PR17_R & 0xFF0FFFFF)|(3<<21);
+    NVIC_EN0_R |=(1<<30);
+
+}
+void GPIOF_Handler(void)
+{
+      GPIO_PORTF_ICR_R |= 0x10;
+      GPIO_PORTF_DATA_R = 0x01;
 
 }
 void Systic_init(void)
