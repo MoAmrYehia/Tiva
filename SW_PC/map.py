@@ -53,18 +53,30 @@ for i in range(3, len(readings)):
 # Mapping Code
 
 apikey = "AIzaSyAyU5txJ86b25-_l0DW-IldSKGGYqQJn3M"
-latitude_list = [ 30.3358376, 30.307977, 30.3216419 ]
-longitude_list = [ 77.8701919, 78.048457, 78.0413095 ]
 
-gmap3 = gmplot.GoogleMapPlotter(30.0634725239,
-                                31.27879477537, 13) # faculty location
-  
+# For testing purposes
+#latitude_list = [ 30.3358376, 30.307977, 30.3216419 ]
+#longitude_list = [ 77.8701919, 78.048457, 78.0413095 ]
 
-gmap3.scatter(latitude_list, longitude_list, '#FF0000',
-                                size = 40, marker = True)
+
+gmap3 = gmplot.GoogleMapPlotter(30.06481, 31.27753, 13) # faculty location - starting point
+
+gmap3.coloricon = "http://www.googlemapsmarkers.com/v1/%s/"
+
+# Adding Marker at start point
+gmap3.marker(latitude_list[0], longitude_list[0], "#880E4F", title="School")
+
+
+gmap3.scatter(latitude_list, longitude_list, '#0F9D58',
+                                size = 40, marker = False)
   
 # Drawing Trajectory
 gmap3.plot(latitude_list, longitude_list,
                    color = 'cornflowerblue')
+
+# Adding Marker at end point
+gmap3.marker(latitude_list[-1], longitude_list[-1], "#0F9D58", title="School")
+
 # Saving the map  
 gmap3.draw(r"G:\aaaaaaa\Uni\Third Year\Second Term\google_map_2.html")
+
