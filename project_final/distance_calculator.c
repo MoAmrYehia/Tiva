@@ -34,14 +34,6 @@ double distance(double lat1, double lon1, double lat2, double lon2) {
 	lat2 = sub_double(lat2);
 	lon1 = sub_double(lon1);
 	lon2 = sub_double(lon2);
-	/*sprintf(arr,"%f",lat1);
-	Print_String(arr);
-	sprintf(arr,"%f",lon1);
-	Print_String(arr);
-	sprintf(arr,"%f",lat2);
-	Print_String(arr);
-	sprintf(arr,"%f",lon2);
-	Print_String(arr);*/
     if ((lat1 == lat2) && (lon1 == lon2)) {
         return 0;
     }
